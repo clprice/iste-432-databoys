@@ -27,10 +27,14 @@ npx create-react-app vbay
 5. Switch the src and the public files from the github
 (node can not be stored in github too many files
 
-6.  Change directory to the app
+6. Add express
+
+npm install express
+
+7.  Change directory to the app
 cd vbay
 
-7. Run app
+8. Run app
 npm start
 
 
