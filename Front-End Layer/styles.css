@@ -3,8 +3,9 @@ body{
 }
 
 img{
-    width: 20%;
-    height: 20%;
+    position: fixed;
+    left:0;
+    top:0;
 }
 
 .main-menu ul{
@@ -13,7 +14,7 @@ img{
 }
 
 .main-menu{
-    display: inline-block;
+    float:right;
 }
 
 .main-menu li{
@@ -44,4 +45,40 @@ ul#page-header li a{
 ul#page-header li a:hover{
     background-color: green;
     color:white;
+}
+
+.footer{
+    position: fixed;
+    left:0;
+    bottom:0;
+    width:100%;
+    text-align:center;
+}
+
+
+.profile-form{
+    width: 700px;
+    clear:both;
+    background-color:pink;
+    font-size:50px;
+    display:inline-block;
+}
+
+.container{
+    text-align:center;
+}
+
+.auction{
+    height: 300px;
+    width: 300px;
+    background-color:red;
+    display:inline-block;
+}
+
+.dosier{
+    height:200px;
+    width: 200px;
+    background-color:pink;
+    text-align: center;
+    display:inline-block;
 }
