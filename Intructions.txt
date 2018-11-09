@@ -22,7 +22,7 @@ npm install babel-core --save-dev
 
 
 4. This is to create the app (say yes to install the npx)
-npx create-react-app v-bay
+npx create-react-app vbay
 
 5. Switch the src and the public files from the github
 (node can not be stored in github too many files
