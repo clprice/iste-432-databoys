@@ -4,7 +4,8 @@ module.exports = {
       userid: {
         type: Sequelize.STRING,
         allowNull: false,
-        primaryKey: true
+        primaryKey: true,
+        unique: true
       },
       email: {
         type: Sequelize.STRING,
