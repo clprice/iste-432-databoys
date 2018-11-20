@@ -14,7 +14,6 @@ module.exports = {
             .then(games => res.status(200).send(games))
             .catch(error => res.status(400).send(error));
     },
-
     retrieve(req, res) {
         return Game
             .findById(req.params.id)
@@ -28,7 +27,6 @@ module.exports = {
             })
             .catch(error => res.status(400).send(error));
     },
-
     update(req, res) {
         return Game
             .findById(req.params.id)
@@ -49,7 +47,6 @@ module.exports = {
             })
             .catch((error) => res.status(400).send(error));
     },
-
     destroy(req, res) {
         return Game
             .findById(req.params.id)

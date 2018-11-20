@@ -11,10 +11,6 @@ module.exports = (sequelize, DataTypes) => {
     offerid: {
       type: DataTypes.INTEGER,
       allowNull: false
-    },
-    tradedate: {
-      type: DataTypes.DATEONLY,
-      allowNull: false
     }
   })
   CompletedTrade.associate = function (models) { }

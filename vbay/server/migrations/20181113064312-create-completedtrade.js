@@ -1,27 +1,29 @@
-'use strict';
 module.exports = {
   up: (queryInterface, Sequelize) => {
     return queryInterface.createTable('completedtrades', {
-      id: {
+      completionid: {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      completionid: {
-        type: Sequelize.INTEGER
-      },
       tradeid: {
-        type: Sequelize.INTEGER
+        allowNull: false,
+        type: Sequelize.INTEGER,
+        onDelete: 'CASCADE',
+        references: {
+          model: 'trades',
+          key: 'tradeid'
+        }
       },
-      primarytraderid: {
-        type: Sequelize.STRING
-      },
-      secondarytraderid: {
-        type: Sequelize.STRING
-      },
-      tradedate: {
-        type: Sequelize.DATEONLY
+      offerid: {
+        allowNull: false,
+        type: Sequelize.INTEGER,
+        onDelete: 'CASCADE',
+        references: {
+          model: 'offers',
+          key: 'offerid'
+        }
       },
       createdAt: {
         allowNull: false,
@@ -31,9 +33,9 @@ module.exports = {
         allowNull: false,
         type: Sequelize.DATE
       }
-    });
+    })
   },
   down: (queryInterface, Sequelize) => {
-    return queryInterface.dropTable('completedtrades');
+    return queryInterface.dropTable('completedtrades')
   }
-};
+}

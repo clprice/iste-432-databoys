@@ -1,29 +1,45 @@
-'use strict';
 module.exports = {
   up: (queryInterface, Sequelize) => {
     return queryInterface.createTable('offers', {
-      id: {
+      offerid: {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      offerid: {
-        type: Sequelize.INTEGER
-      },
       userid: {
-        type: Sequelize.INTEGER
+        allowNull: false,
+        type: Sequelize.STRING,
+        onDelete: 'CASCADE',
+        references: {
+          model: 'userss',
+          key: 'userid'
+        }
       },
       tradeid: {
-        type: Sequelize.INTEGER
+        allowNull: false,
+        type: Sequelize.INTEGER,
+        onDelete: 'CASCADE',
+        references: {
+          model: 'trades',
+          key: 'tradeid'
+        }
       },
       gameid: {
-        type: Sequelize.INTEGER
+        allowNull: false,
+        type: Sequelize.INTEGER,
+        onDelete: 'CASCADE',
+        references: {
+          model: 'games',
+          key: 'gameid'
+        }
       },
       condition: {
+        allowNull: false,
         type: Sequelize.STRING
       },
       message: {
+        allowNull: true,
         type: Sequelize.STRING
       },
       createdAt: {
