@@ -1,14 +1,24 @@
-'use strict';
 module.exports = (sequelize, DataTypes) => {
-  const completedtrade = sequelize.define('completedtrade', {
-    completionid: DataTypes.INTEGER,
-    tradeid: DataTypes.INTEGER,
-    primarytraderid: DataTypes.STRING,
-    secondarytraderid: DataTypes.STRING,
-    tradedate: DataTypes.DATEONLY
-  }, {});
-  completedtrade.associate = function(models) {
-    // associations can be defined here
+  const CompletedTrade = sequelize.define('CompletedTrade', {
+    completionid: {
+      type: DataTypes.INTEGER,
+      allowNull: false
+    },
+    tradeid: {
+      type: DataTypes.INTEGER,
+      allowNull: false
+    },
+    offerid: {
+      type: DataTypes.INTEGER,
+      allowNull: false
+    },
+    tradedate: {
+      type: DataTypes.DATEONLY,
+      allowNull: false
+    },
+  });
+  CompletedTrade.associate = function (models) {
+
   };
-  return completedtrade;
+  return CompletedTrade;
 };
