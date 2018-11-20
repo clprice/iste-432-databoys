@@ -20,9 +20,13 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.STRING,
       allowNull: true
     }
-  }, {});
+  });
+  User.removeAttribute('id');
   User.associate = function (models) {
-    // associations can be defined here
+    User.hasMany(models.Auction)
+    User.hasMany(models.Bid)
+    User.hasMany(models.Trade)
+    User.hasMany(models.Offer)
   };
   return User;
 };

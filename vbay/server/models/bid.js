@@ -1,13 +1,13 @@
 'use strict';
 module.exports = (sequelize, DataTypes) => {
-  const bid = sequelize.define('bid', {
+  const Bid = sequelize.define('Bid', {
     bid: DataTypes.INTEGER,
     userid: DataTypes.STRING,
     auctionid: DataTypes.INTEGER,
     price: DataTypes.DOUBLE
-  }, {});
-  bid.associate = function(models) {
-    // associations can be defined here
+  });
+  Bid.associate = function (models) {
+
   };
-  return bid;
+  return Bid;
 };

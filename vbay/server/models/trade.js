@@ -6,7 +6,7 @@ module.exports = (sequelize, DataTypes) => {
     description: DataTypes.STRING,
     condition: DataTypes.STRING,
     status: DataTypes.STRING
-  }, {});
+  });
   Trade.associate = (models) => {
 
   };

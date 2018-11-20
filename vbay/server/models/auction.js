@@ -1,15 +1,32 @@
-'use strict';
 module.exports = (sequelize, DataTypes) => {
-  const auction = sequelize.define('auction', {
-    auctionid: DataTypes.INTEGER,
-    userid: DataTypes.STRING,
-    gameid: DataTypes.INTEGER,
-    description: DataTypes.STRING,
-    status: DataTypes.STRING,
-    startprice: DataTypes.DOUBLE
-  }, {});
-  auction.associate = function(models) {
-    // associations can be defined here
+  const Auction = sequelize.define('Auction', {
+    auctionid: {
+      type: DataTypes.INTEGER,
+      allowNull: false
+    },
+    userid: {
+      type: DataTypes.STRING,
+      allowNull: false
+    },
+    gameid: {
+      type: DataTypes.INTEGER,
+      allowNull: false
+    },
+    description: {
+      type: DataTypes.STRING,
+      allowNull: false
+    },
+    status: {
+      type: DataTypes.STRING,
+      allowNull: false
+    },
+    startprice: {
+      type: DataTypes.DOUBLE,
+      allowNull: false
+    }
+  });
+  Auction.associate = (models) => {
+    Auction.hasMany(Models.Bid)
   };
-  return auction;
+  return Auction;
 };
