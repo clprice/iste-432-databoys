@@ -1,14 +1,33 @@
 module.exports = (sequelize, DataTypes) => {
   const Trade = sequelize.define('Trade', {
-    tradeid: DataTypes.INTEGER,
-    gameid: DataTypes.STRING,
-    userid: DataTypes.STRING,
-    description: DataTypes.STRING,
-    condition: DataTypes.STRING,
-    status: DataTypes.STRING
+    tradeid: {
+      type: DataTypes.INTEGER,
+      allowNull: false
+    },
+    gameid: {
+      type: DataTypes.INTEGER,
+      allowNull: false
+    },
+    userid: {
+      type: DataTypes.STRING,
+      allowNull: false
+    },
+    description: {
+      type: DataTypes.STRING,
+      allowNull: false
+    },
+    condition: {
+      type: DataTypes.STRING,
+      allowNull: false
+    },
+    status: {
+      type: DataTypes.STRING,
+      allowNull: false
+    }
   });
   Trade.associate = (models) => {
-
+    Trade.hasMany(models.Offer)
+    Trade.hasOne(models.CompletedTrade)
   };
   return Trade;
 };

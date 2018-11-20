@@ -1,14 +1,28 @@
 'use strict';
 module.exports = (sequelize, DataTypes) => {
-  const sale = sequelize.define('sale', {
-    saleid: DataTypes.INTEGER,
-    auctionid: DataTypes.INTEGER,
-    bidid: DataTypes.STRING,
-    price: DataTypes.DOUBLE,
-    saledate: DataTypes.STRING
+  const Sale = sequelize.define('Sale', {
+    saleid: {
+      type: DataTypes.INTEGER,
+      allowNull: false
+    },
+    auctionid: {
+      type: DataTypes.INTEGER,
+      allowNull: false
+    },
+    bidid: {
+      type: DataTypes.INTEGER,
+      allowNull: false
+    },
+    price: {
+      type: DataTypes.DOUBLE,
+      allowNull: false
+    },
+    saledate: {
+      type: DataTypes.DATEONLY,
+      allowNull: false
+    },
   });
-  sale.associate = function (models) {
-    // associations can be defined here
+  Sale.associate = function (models) {
   };
-  return sale;
+  return Sale;
 };

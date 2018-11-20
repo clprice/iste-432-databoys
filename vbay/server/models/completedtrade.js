@@ -15,7 +15,7 @@ module.exports = (sequelize, DataTypes) => {
     tradedate: {
       type: DataTypes.DATEONLY,
       allowNull: false
-    },
+    }
   });
   CompletedTrade.associate = function (models) {
 
