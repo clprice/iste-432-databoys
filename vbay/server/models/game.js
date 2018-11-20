@@ -13,8 +13,10 @@ module.exports = (sequelize, DataTypes) => {
       allowNull: false
     }
   }, {});
-  Game.associate = function (models) {
-    // associations can be defined here
-  };
+  Game.associate = (models) => {
+    Game.hasMany(models.Auction)
+    Game.hasMany(models.Trade)
+    Game.hasMany(models.Offer)
+  }
   return Game;
 };
