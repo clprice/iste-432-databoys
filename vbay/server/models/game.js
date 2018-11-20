@@ -12,11 +12,17 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.STRING,
       allowNull: false
     }
-  }, {});
+  }, {})
   Game.associate = (models) => {
-    Game.hasMany(models.Auction)
-    Game.hasMany(models.Trade)
-    Game.hasMany(models.Offer)
+    Game.hasMany(models.Auction, {
+      onDelete: 'CASCADE'
+    })
+    Game.hasMany(models.Trade, {
+      onDelete: 'CASCADE'
+    })
+    Game.hasMany(models.Offer, {
+      onDelete: 'CASCADE'
+    })
   }
-  return Game;
-};
+  return Game
+}

@@ -16,9 +16,7 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.DATEONLY,
       allowNull: false
     }
-  });
-  CompletedTrade.associate = function (models) {
-
-  };
-  return CompletedTrade;
-};
+  })
+  CompletedTrade.associate = function (models) { }
+  return CompletedTrade
+}

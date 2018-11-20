@@ -24,9 +24,11 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.STRING,
       allowNull: true
     }
-  });
+  })
   Offer.associate = function (models) {
-    Offer.hasOne(models.CompleteTrade)
-  };
-  return Offer;
-};
+    Offer.hasOne(models.CompleteTrade, {
+      onDelete: 'CASCADE'
+    })
+  }
+  return Offer
+}

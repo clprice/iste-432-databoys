@@ -1,4 +1,4 @@
-'use strict';
+'use strict'
 module.exports = (sequelize, DataTypes) => {
   const Sale = sequelize.define('Sale', {
     saleid: {
@@ -21,8 +21,7 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.DATEONLY,
       allowNull: false
     },
-  });
-  Sale.associate = function (models) {
-  };
-  return Sale;
-};
+  })
+  Sale.associate = function (models) { }
+  return Sale
+}

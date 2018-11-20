@@ -24,10 +24,14 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.STRING,
       allowNull: false
     }
-  });
+  })
   Trade.associate = (models) => {
-    Trade.hasMany(models.Offer)
-    Trade.hasOne(models.CompletedTrade)
-  };
-  return Trade;
-};
+    Trade.hasMany(models.Offer, {
+      onDelete: 'CASCADE'
+    })
+    Trade.hasOne(models.CompletedTrade, {
+      onDelete: 'CASCADE'
+    })
+  }
+  return Trade
+}

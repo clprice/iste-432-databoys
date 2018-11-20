@@ -20,13 +20,21 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.STRING,
       allowNull: true
     }
-  });
-  User.removeAttribute('id');
+  })
+  User.removeAttribute('id')
   User.associate = function (models) {
-    User.hasMany(models.Auction)
-    User.hasMany(models.Bid)
-    User.hasMany(models.Trade)
-    User.hasMany(models.Offer)
-  };
-  return User;
-};
+    User.hasMany(models.Auction, {
+      onDelete: 'CASCADE'
+    })
+    User.hasMany(models.Bid, {
+      onDelete: 'CASCADE'
+    })
+    User.hasMany(models.Trade, {
+      onDelete: 'CASCADE'
+    })
+    User.hasMany(models.Offer, {
+      onDelete: 'CASCADE'
+    })
+  }
+  return User
+}

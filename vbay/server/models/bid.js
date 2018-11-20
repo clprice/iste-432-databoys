@@ -1,4 +1,4 @@
-'use strict';
+'use strict'
 module.exports = (sequelize, DataTypes) => {
   const Bid = sequelize.define('Bid', {
     bidid: {
@@ -17,9 +17,11 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.DOUBLE,
       allowNull: false
     }
-  });
+  })
   Bid.associate = function (models) {
-    Bid.hasOne(models.Sale)
-  };
-  return Bid;
-};
+    Bid.hasOne(models.Sale, {
+      onDelete: 'CASCADE'
+    })
+  }
+  return Bid
+}
