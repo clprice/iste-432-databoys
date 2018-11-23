@@ -12,7 +12,7 @@ module.exports = {
         type: Sequelize.STRING,
         onDelete: 'CASCADE',
         references: {
-          model: 'userss',
+          model: 'users',
           key: 'userid'
         }
       },
