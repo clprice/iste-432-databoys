@@ -1,4 +1,3 @@
-'use strict'
 module.exports = (sequelize, DataTypes) => {
   const Bid = sequelize.define('Bid', {
     bidid: {
