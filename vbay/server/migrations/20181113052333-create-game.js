@@ -26,6 +26,6 @@ module.exports = {
     });
   },
   down: (queryInterface, Sequelize) => {
-    queryInterface.dropTable('Games');
+    queryInterface.dropTable('games');
   }
 };
