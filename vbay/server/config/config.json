@@ -25,5 +25,5 @@
     "port": 5432,
     "dialect": "postgres",
     "operatorsAliases": false
-  },
+  }
 }
