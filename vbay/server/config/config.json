@@ -5,7 +5,8 @@
     "database": "vbay",
     "host": "127.0.0.1",
     "port": 5432,
-    "dialect": "postgres"
+    "dialect": "postgres",
+    "operatorsAliases": false
   },
   "test": {
     "username": "jason",
@@ -13,7 +14,8 @@
     "database": "vbay",
     "host": "127.0.0.1",
     "port": 5432,
-    "dialect": "postgres"
+    "dialect": "postgres",
+    "operatorsAliases": false
   },
   "production": {
     "username": "jason",
@@ -21,6 +23,7 @@
     "database": "vbay",
     "host": "127.0.0.1",
     "port": 5432,
-    "dialect": "postgres"
-  }
+    "dialect": "postgres",
+    "operatorsAliases": false
+  },
 }
