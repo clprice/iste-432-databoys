@@ -26,7 +26,7 @@ module.exports = (sequelize, DataTypes) => {
     }
   })
   Offer.associate = function (models) {
-    Offer.hasOne(models.CompleteTrade, {
+    Offer.hasOne(models.CompletedTrade, {
       onDelete: 'CASCADE'
     })
   }
