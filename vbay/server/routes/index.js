@@ -84,7 +84,7 @@ module.exports = (app) => {
     // Games
     app.delete('/vbay-api/games/:gameid', gamesController.destroy)
     // Offers
-    app.delete('/vbay-api/offers/:offerid', offerController.destroy)
+    app.delete('/vbay-api/offers/:offerid', offersController.destroy)
     // Sales
     app.delete('/vbay-api/sales/:saleid', salesController.destroy)
     // Trades
