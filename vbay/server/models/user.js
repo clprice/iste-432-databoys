@@ -2,7 +2,8 @@ module.exports = (sequelize, DataTypes) => {
   const User = sequelize.define('User', {
     userid: {
       type: DataTypes.STRING,
-      allowNull: false
+      allowNull: false,
+      primaryKey: true
     },
     email: {
       type: DataTypes.STRING,
@@ -21,7 +22,6 @@ module.exports = (sequelize, DataTypes) => {
       allowNull: true
     }
   })
-  User.removeAttribute('id')
   User.associate = function (models) {
     User.hasMany(models.Auction, {
       onDelete: 'CASCADE'
