@@ -1,75 +1,75 @@
-const User = require('../models').User
+const Trade = require('../models').Trade
 
 module.exports = {
     create(req, res) {
-        return User
+        return Trade
             .create({
-                userid: req.body.userid,
+                tradeid: req.body.tradeid,
                 email: req.body.email,
                 password: req.body.password,
                 fname: req.body.fname,
                 lname: req.body.lname
             })
-            .then(user => res.status(201).send(user))
+            .then(trade => res.status(201).send(trade))
             .catch(error => res.status(400).send(error))
     },
 
     list(req, res) {
-        return User
+        return Trade
             .findAll()
-            .then(users => res.status(200).send(users))
+            .then(trades => res.status(200).send(trades))
             .catch(error => res.status(400).send(error))
     },
 
     retrieve(req, res) {
-        return User
+        return Trade
             .findById(req.params.id)
-            .then(user => {
-                if (!user) {
+            .then(trade => {
+                if (!trade) {
                     return res.status(404).send({
-                        message: 'User Not Found',
+                        message: 'Trade Not Found',
                     })
                 }
-                return res.status(200).send(user)
+                return res.status(200).send(trade)
             })
             .catch(error => res.status(400).send(error))
     },
 
     update(req, res) {
-        return User
+        return Trade
             .findById(req.params.id)
-            .then(user => {
-                if (!user) {
+            .then(trade => {
+                if (!trade) {
                     return res.status(404).send({
-                        message: 'User Not Found',
+                        message: 'Trade Not Found',
                     })
                 }
-                return user
+                return trade
                     .update({
-                        userid: req.body.userid || user.userid,
-                        email: req.body.email || user.email,
-                        password: req.body.password || user.password,
-                        fname: req.body.fname || user.fname,
-                        lname: req.body.lname || user.lname
+                        tradeid: req.body.tradeid || trade.tradeid,
+                        email: req.body.email || trade.email,
+                        password: req.body.password || trade.password,
+                        fname: req.body.fname || trade.fname,
+                        lname: req.body.lname || trade.lname
                     })
-                    .then(() => res.status(200).send(user))  // Send back the updated user.
+                    .then(() => res.status(200).send(trade))  // Send back the updated trade.
                     .catch((error) => res.status(400).send(error))
             })
             .catch((error) => res.status(400).send(error))
     },
 
     destroy(req, res) {
-        return User
+        return Trade
             .findById(req.params.id)
-            .then(user => {
-                if (!user) {
+            .then(trade => {
+                if (!trade) {
                     return res.status(400).send({
-                        message: 'User Not Found',
+                        message: 'Trade Not Found',
                     })
                 }
-                return user
+                return trade
                     .destroy()
-                    .then(() => res.status(200).send({ message: 'User deleted successfully.' }))
+                    .then(() => res.status(200).send({ message: 'Trade deleted successfully.' }))
                     .catch(error => res.status(400).send(error))
             })
             .catch(error => res.status(400).send(error))
