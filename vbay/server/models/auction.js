@@ -26,7 +26,7 @@ module.exports = (sequelize, DataTypes) => {
     }
   })
   Auction.associate = (models) => {
-    Auction.hasMany(Models.Bid, {
+    Auction.hasMany(models.Bid, {
       onDelete: 'CASCADE'
     })
   }
