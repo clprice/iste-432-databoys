@@ -2,10 +2,14 @@ const Auction = require('../models').Auction
 
 module.exports = {
     create(req, res) {
+        console.log(req.body)
         return Auction.create({
             auctionid: req.body.auctionid,
-            name: req.body.name,
-            description: req.body.description
+            userid: req.body.userid,
+            gameid: req.body.gameid,
+            description: req.body.description,
+            status: req.body.status,
+            startprice: req.body.startprice
         }).then(todo => res.status(201).send(todo)).catch(error => res.status(400).send(error))
     },
     list(req, res) {
@@ -39,8 +43,11 @@ module.exports = {
                 return auction
                     .update({
                         auctionid: req.body.auctionid || auction.auctionid,
-                        name: req.body.name || auction.name,
-                        description: req.body.description || auction.description
+                        userid: req.body.userid || auction.userid,
+                        gameid: req.body.gameid || auction.gameid,
+                        description: req.body.description || auction.description,
+                        status: req.body.status || auction.status,
+                        startprice: req.body.startprice || auction.startprice
                     })
                     .then(() => res.status(200).send(auction))  // Send back the updated auction.
                     .catch((error) => res.status(400).send(error))
