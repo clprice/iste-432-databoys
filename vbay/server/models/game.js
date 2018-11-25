@@ -2,7 +2,9 @@ module.exports = (sequelize, DataTypes) => {
   const Game = sequelize.define('Game', {
     gameid: {
       type: DataTypes.INTEGER,
-      allowNull: false
+      allowNull: true,
+      primaryKey: true,
+      autoIncrement: true
     },
     name: {
       type: DataTypes.STRING,

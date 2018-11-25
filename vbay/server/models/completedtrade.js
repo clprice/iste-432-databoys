@@ -2,7 +2,9 @@ module.exports = (sequelize, DataTypes) => {
   const CompletedTrade = sequelize.define('CompletedTrade', {
     completionid: {
       type: DataTypes.INTEGER,
-      allowNull: false
+      allowNull: true,
+      primaryKey: true,
+      autoIncrement: true
     },
     tradeid: {
       type: DataTypes.INTEGER,

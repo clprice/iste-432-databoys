@@ -2,7 +2,9 @@ module.exports = (sequelize, DataTypes) => {
   const Bid = sequelize.define('Bid', {
     bidid: {
       type: DataTypes.INTEGER,
-      allowNull: false
+      allowNull: true,
+      autoIncrement: true,
+      primaryKey: true
     },
     userid: {
       type: DataTypes.STRING,

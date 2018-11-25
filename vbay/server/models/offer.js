@@ -2,7 +2,9 @@ module.exports = (sequelize, DataTypes) => {
   const Offer = sequelize.define('Offer', {
     offerid: {
       type: DataTypes.INTEGER,
-      allowNull: false
+      allowNull: true,
+      autoIncrement: true,
+      primaryKey: true,
     },
     userid: {
       type: DataTypes.STRING,

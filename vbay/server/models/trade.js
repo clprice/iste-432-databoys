@@ -2,7 +2,9 @@ module.exports = (sequelize, DataTypes) => {
   const Trade = sequelize.define('Trade', {
     tradeid: {
       type: DataTypes.INTEGER,
-      allowNull: false
+      allowNull: true,
+      autoIncrement: true,
+      primaryKey: true
     },
     gameid: {
       type: DataTypes.INTEGER,
