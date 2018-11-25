@@ -5,16 +5,17 @@ module.exports = (sequelize, DataTypes) => {
       allowNull: true,
       primaryKey: true,
       autoIncrement: true
-    },
-    tradeid: {
-      type: DataTypes.INTEGER,
-      allowNull: false
-    },
-    offerid: {
-      type: DataTypes.INTEGER,
-      allowNull: false
     }
   })
-  CompletedTrade.associate = function (models) { }
+  CompletedTrade.associate = function (models) {
+    CompletedTrade.belongsTo(models.Trade, {
+      foreignKey: 'completedtrade_tradeid',
+      onDelete: 'CASCADE'
+    })
+    CompletedTrade.belongsTo(models.Offer, {
+      foreignKey: 'completedtrade_offerid',
+      onDelete: 'CASCADE'
+    })
+  }
   return CompletedTrade
 }

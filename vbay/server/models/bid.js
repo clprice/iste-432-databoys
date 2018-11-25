@@ -6,21 +6,22 @@ module.exports = (sequelize, DataTypes) => {
       autoIncrement: true,
       primaryKey: true
     },
-    userid: {
-      type: DataTypes.STRING,
-      allowNull: false
-    },
-    auctionid: {
-      type: DataTypes.INTEGER,
-      allowNull: false
-    },
     price: {
       type: DataTypes.DOUBLE,
       allowNull: false
     }
   })
   Bid.associate = function (models) {
+    Bid.belongsTo(models.User, {
+      foreignKey: 'bid_userid',
+      onDelete: 'CASCADE'
+    })
+    Bid.belongsTo(models.Auction, {
+      foreignKey: 'bid_auctionid',
+      onDelete: 'CASCADE'
+    })
     Bid.hasOne(models.Sale, {
+      foreignKey: 'sale_bidid',
       onDelete: 'CASCADE'
     })
   }

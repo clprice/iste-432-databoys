@@ -25,16 +25,16 @@ module.exports = (sequelize, DataTypes) => {
   })
   User.associate = function (models) {
     User.hasMany(models.Auction, {
-      onDelete: 'CASCADE'
+      foreignKey: 'auction_userid'
     })
     User.hasMany(models.Bid, {
-      onDelete: 'CASCADE'
+      foreignKey: 'bid_auctionid'
     })
     User.hasMany(models.Trade, {
-      onDelete: 'CASCADE'
+      foreignKey: 'trade_userid'
     })
     User.hasMany(models.Offer, {
-      onDelete: 'CASCADE'
+      foreignKey: 'offer_userid'
     })
   }
   return User

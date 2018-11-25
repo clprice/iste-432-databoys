@@ -6,14 +6,6 @@ module.exports = (sequelize, DataTypes) => {
       autoIncrement: true,
       primaryKey: true
     },
-    gameid: {
-      type: DataTypes.INTEGER,
-      allowNull: false
-    },
-    userid: {
-      type: DataTypes.STRING,
-      allowNull: false
-    },
     description: {
       type: DataTypes.STRING,
       allowNull: false
@@ -28,6 +20,14 @@ module.exports = (sequelize, DataTypes) => {
     }
   })
   Trade.associate = (models) => {
+    Trade.belongsTo(models.Game, {
+      foreignKey: 'trade_gameid',
+      onDelete: 'CASCADE'
+    })
+    Trade.belongsTo(models.User, {
+      foreignKey: 'trade_userid',
+      onDelete: 'CASCADE'
+    })
     Trade.hasMany(models.Offer, {
       onDelete: 'CASCADE'
     })

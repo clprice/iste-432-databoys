@@ -14,15 +14,18 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.STRING,
       allowNull: false
     }
-  }, {})
+  })
   Game.associate = (models) => {
     Game.hasMany(models.Auction, {
+      foreignKey: 'auction_gameid',
       onDelete: 'CASCADE'
     })
     Game.hasMany(models.Trade, {
+      foreignKey: 'trade_gameid',
       onDelete: 'CASCADE'
     })
     Game.hasMany(models.Offer, {
+      foreignKey: 'offer_gameid',
       onDelete: 'CASCADE'
     })
   }
