@@ -14,9 +14,9 @@ module.exports = (app) => {
 
     /**** CREATE ****/
     // Auctions
-    app.post('/vbay-api/auctions', auctionsController.create)
+    app.post('/vbay-api/users/:userid/auctions', auctionsController.create)
     // Bids
-    app.post('/vbay-api/bids', bidsController.create)
+    app.post('/vbay-api/users/:userid/bids', bidsController.create)
     // CompletedTrades
     app.post('/vbay-api/completedtrades', completedtradesController.create)
     // Games

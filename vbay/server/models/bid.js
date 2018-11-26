@@ -6,6 +6,22 @@ module.exports = (sequelize, DataTypes) => {
       autoIncrement: true,
       primaryKey: true
     },
+    userid: {
+      allowNull: false,
+      type: DataTypes.STRING,
+      references: {
+        model: 'Users',
+        key: 'userid'
+      }
+    },
+    auctionid: {
+      allowNull: false,
+      type: DataTypes.INTEGER,
+      references: {
+        model: 'Auctions',
+        key: 'auctionid'
+      }
+    },
     price: {
       type: DataTypes.DOUBLE,
       allowNull: false

@@ -5,7 +5,23 @@ module.exports = (sequelize, DataTypes) => {
       allowNull: true,
       primaryKey: true,
       autoIncrement: true
-    }
+    },
+    tradeid: {
+      allowNull: false,
+      type: DataTypes.INTEGER,
+      references: {
+        model: 'Trades',
+        key: 'tradeid'
+      }
+    },
+    offerid: {
+      allowNull: false,
+      type: DataTypes.INTEGER,
+      references: {
+        model: 'Offers',
+        key: 'offerid'
+      }
+    },
   })
   CompletedTrade.associate = function (models) {
     CompletedTrade.belongsTo(models.Trade, {
