@@ -21,11 +21,11 @@ module.exports = (sequelize, DataTypes) => {
   })
   Trade.associate = (models) => {
     Trade.belongsTo(models.Game, {
-      foreignKey: 'trade_gameid',
+      foreignKey: 'gameid',
       onDelete: 'CASCADE'
     })
     Trade.belongsTo(models.User, {
-      foreignKey: 'trade_userid',
+      foreignKey: 'userid',
       onDelete: 'CASCADE'
     })
     Trade.hasMany(models.Offer, {
