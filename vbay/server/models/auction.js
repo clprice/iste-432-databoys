@@ -6,6 +6,24 @@ module.exports = (sequelize, DataTypes) => {
       autoIncrement: true,
       primaryKey: true,
     },
+    userid: {
+      allowNull: false,
+      type: DataTypes.STRING,
+      onDelete: 'CASCADE',
+      references: {
+        model: 'Users',
+        key: 'userid'
+      }
+    },
+    gameid: {
+      allowNull: false,
+      type: DataTypes.INTEGER,
+      onDelete: 'CASCADE',
+      references: {
+        model: 'Games',
+        key: 'gameid'
+      }
+    },
     description: {
       type: DataTypes.STRING,
       allowNull: false
@@ -21,15 +39,15 @@ module.exports = (sequelize, DataTypes) => {
   })
   Auction.associate = (models) => {
     Auction.belongsTo(models.User, {
-      foreignKey: 'auction_userid',
+      foreignKey: 'userid',
       onDelete: 'CASCADE'
     })
     Auction.belongsTo(models.Game, {
-      foreignKey: 'auction_gameid',
+      foreignKey: 'gameid',
       onDelete: 'CASCADE'
     })
     Auction.hasMany(models.Bid, {
-      foreignKey: 'auction_bidid'
+      foreignKey: 'bidid'
     })
   }
   return Auction

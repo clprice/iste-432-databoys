@@ -17,11 +17,11 @@ module.exports = (sequelize, DataTypes) => {
   })
   Sale.associate = function (models) {
     Sale.belongsTo(models.Auction, {
-      foreignKey: 'sale_auctionid',
+      foreignKey: 'auctionid',
       onDelete: 'CASCADE'
     })
     Sale.belongsTo(models.Bid, {
-      foreignKey: 'sale_bidid',
+      foreignKey: 'bidid',
       onDelete: 'CASCADE'
     })
   }

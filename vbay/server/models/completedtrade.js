@@ -9,11 +9,11 @@ module.exports = (sequelize, DataTypes) => {
   })
   CompletedTrade.associate = function (models) {
     CompletedTrade.belongsTo(models.Trade, {
-      foreignKey: 'completedtrade_tradeid',
+      foreignKey: 'tradeid',
       onDelete: 'CASCADE'
     })
     CompletedTrade.belongsTo(models.Offer, {
-      foreignKey: 'completedtrade_offerid',
+      foreignKey: 'offerid',
       onDelete: 'CASCADE'
     })
   }

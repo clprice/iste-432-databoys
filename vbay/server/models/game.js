@@ -17,15 +17,15 @@ module.exports = (sequelize, DataTypes) => {
   })
   Game.associate = (models) => {
     Game.hasMany(models.Auction, {
-      foreignKey: 'auction_gameid',
+      foreignKey: 'gameid',
       onDelete: 'CASCADE'
     })
     Game.hasMany(models.Trade, {
-      foreignKey: 'trade_gameid',
+      foreignKey: 'gameid',
       onDelete: 'CASCADE'
     })
     Game.hasMany(models.Offer, {
-      foreignKey: 'offer_gameid',
+      foreignKey: 'gameid',
       onDelete: 'CASCADE'
     })
   }

@@ -2,10 +2,8 @@ const Auction = require('../models').Auction
 
 module.exports = {
     create(req, res) {
-        console.log(req.body)
         return Auction.create({
-            auctionid: req.body.auctionid,
-            userid: req.body.userid,
+            userid: req.params.userid,
             gameid: req.body.gameid,
             description: req.body.description,
             status: req.body.status,

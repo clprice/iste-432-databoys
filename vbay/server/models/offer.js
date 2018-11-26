@@ -17,15 +17,15 @@ module.exports = (sequelize, DataTypes) => {
   })
   Offer.associate = function (models) {
     Offer.belongsTo(models.User, {
-      foreignKey: 'offer_userid',
+      foreignKey: 'userid',
       onDelete: 'CASCADE'
     })
     Offer.belongsTo(models.Trade, {
-      foreignKey: 'offer_tradeid',
+      foreignKey: 'tradeid',
       onDelete: 'CASCADE'
     })
     Offer.belongsTo(models.Game, {
-      foreignKey: 'offer_gameid',
+      foreignKey: 'gameid',
       onDelete: 'CASCADE'
     })
     Offer.hasOne(models.CompletedTrade, {

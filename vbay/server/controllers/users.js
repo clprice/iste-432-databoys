@@ -1,4 +1,5 @@
 const User = require('../models').User
+const Auction = require('../models').Auction
 
 module.exports = {
     create(req, res) {
@@ -16,7 +17,12 @@ module.exports = {
 
     list(req, res) {
         return User
-            .findAll()
+            .findAll({
+                include: [{
+                    model: Auction,
+                    as: 'Auctions'
+                }]
+            })
             .then(users => res.status(200).send(users))
             .catch(error => res.status(400).send(error))
     },
