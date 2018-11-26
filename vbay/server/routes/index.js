@@ -16,17 +16,17 @@ module.exports = (app) => {
     // Auctions
     app.post('/vbay-api/users/:userid/auctions', auctionsController.create)
     // Bids
-    app.post('/vbay-api/users/:userid/bids', bidsController.create)
+    app.post('/vbay-api/auctions/:auctionid/bids', bidsController.create)
     // CompletedTrades
-    app.post('/vbay-api/completedtrades', completedtradesController.create)
+    app.post('/vbay-api/trades/:tradeid/completedtrades', completedtradesController.create)
     // Games
     app.post('/vbay-api/games', gamesController.create)
     // Offers
-    app.post('/vbay-api/offers', offersController.create)
+    app.post('/vbay-api/trades/:tradeid/offers', offersController.create)
     // Sales
-    app.post('/vbay-api/sales', salesController.create)
+    app.post('/vbay-api/auctions/:auctionid/sales', salesController.create)
     // Trades
-    app.post('/vbay-api/trades', tradesController.create)
+    app.post('/vbay-api/users/:userid/trades', tradesController.create)
     // Users
     app.post('/vbay-api/users', usersController.create)
 
