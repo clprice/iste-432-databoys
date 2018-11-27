@@ -2,13 +2,14 @@ const Trade = require('../models').Trade
 
 module.exports = {
     create(req, res) {
+        console.log('here')
         return Trade
             .create({
-                tradeid: req.body.tradeid,
-                email: req.body.email,
-                password: req.body.password,
-                fname: req.body.fname,
-                lname: req.body.lname
+                userid: req.params.userid,
+                gameid: req.body.gameid,
+                description: req.body.description,
+                condition: req.body.condition,
+                status: req.body.status
             })
             .then(trade => res.status(201).send(trade))
             .catch(error => res.status(400).send(error))
