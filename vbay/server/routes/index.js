@@ -54,7 +54,7 @@ module.exports = (app) => {
     app.get('/vbay-api/trades/:tradeid', tradesController.retrieve)
     // Users
     app.get('/vbay-api/users', usersController.list)
-    app.get('/vbay-api/users/:id', usersController.retrieve)
+    app.get('/vbay-api/users/:userid', usersController.retrieve)
 
     /**** UPDATE ****/
     // Auctions
