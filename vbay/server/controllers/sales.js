@@ -4,8 +4,7 @@ module.exports = {
     create(req, res) {
         return Sale
             .create({
-                saleid: req.body.saleid,
-                auctionid: req.body.auctionid,
+                auctionid: req.params.auctionid,
                 bidid: req.body.bidid,
                 price: req.body.price,
                 saledate: req.body.saledate
@@ -23,7 +22,7 @@ module.exports = {
 
     retrieve(req, res) {
         return Sale
-            .findById(req.params.id)
+            .findById(req.params.saleid)
             .then(sale => {
                 if (!sale) {
                     return res.status(404).send({
@@ -37,7 +36,7 @@ module.exports = {
 
     update(req, res) {
         return Sale
-            .findById(req.params.id)
+            .findById(req.params.saleid)
             .then(sale => {
                 if (!sale) {
                     return res.status(404).send({
@@ -60,7 +59,7 @@ module.exports = {
 
     destroy(req, res) {
         return Sale
-            .findById(req.params.id)
+            .findById(req.params.saleid)
             .then(sale => {
                 if (!sale) {
                     return res.status(400).send({

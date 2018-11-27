@@ -4,9 +4,8 @@ module.exports = {
     create(req, res) {
         return Offer
             .create({
-                offerid: req.body.offerid,
                 userid: req.body.userid,
-                tradeid: req.body.tradeid,
+                tradeid: req.params.tradeid,
                 gameid: req.body.gameid,
                 condition: req.body.condition,
                 message: req.body.message
@@ -24,7 +23,7 @@ module.exports = {
 
     retrieve(req, res) {
         return Offer
-            .findById(req.params.id)
+            .findById(req.params.offerid)
             .then(offer => {
                 if (!offer) {
                     return res.status(404).send({
@@ -38,7 +37,7 @@ module.exports = {
 
     update(req, res) {
         return Offer
-            .findById(req.params.id)
+            .findById(req.params.offerid)
             .then(offer => {
                 if (!offer) {
                     return res.status(404).send({
@@ -62,7 +61,7 @@ module.exports = {
 
     destroy(req, res) {
         return Offer
-            .findById(req.params.id)
+            .findById(req.params.offerid)
             .then(offer => {
                 if (!offer) {
                     return res.status(400).send({

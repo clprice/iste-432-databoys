@@ -3,7 +3,6 @@ const Game = require('../models').Game
 module.exports = {
     create(req, res) {
         return Game.create({
-            gameid: req.body.gameid,
             name: req.body.name,
             description: req.body.description
         }).then(todo => res.status(201).send(todo)).catch(error => res.status(400).send(error))
@@ -16,7 +15,7 @@ module.exports = {
     },
     retrieve(req, res) {
         return Game
-            .findById(req.params.id)
+            .findById(req.params.gameid)
             .then(game => {
                 if (!game) {
                     return res.status(404).send({
@@ -29,7 +28,7 @@ module.exports = {
     },
     update(req, res) {
         return Game
-            .findById(req.params.id)
+            .findById(req.params.gameid)
             .then(game => {
                 if (!game) {
                     return res.status(404).send({
@@ -49,7 +48,7 @@ module.exports = {
     },
     destroy(req, res) {
         return Game
-            .findById(req.params.id)
+            .findById(req.params.gameid)
             .then(game => {
                 if (!game) {
                     return res.status(400).send({

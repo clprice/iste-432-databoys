@@ -4,8 +4,7 @@ module.exports = {
     create(req, res) {
         return CompletedTrade
             .create({
-                completionid: req.body.completionid,
-                tradeid: req.body.tradeid,
+                tradeid: req.params.tradeid,
                 offerid: req.body.offerid
             })
             .then(completedtrade => res.status(201).send(completedtrade))
@@ -21,7 +20,7 @@ module.exports = {
 
     retrieve(req, res) {
         return CompletedTrade
-            .findById(req.params.id)
+            .findById(req.params.completionid)
             .then(completedtrade => {
                 if (!completedtrade) {
                     return res.status(404).send({
@@ -35,7 +34,7 @@ module.exports = {
 
     update(req, res) {
         return CompletedTrade
-            .findById(req.params.id)
+            .findById(req.params.completionid)
             .then(completedtrade => {
                 if (!completedtrade) {
                     return res.status(404).send({
@@ -56,7 +55,7 @@ module.exports = {
 
     destroy(req, res) {
         return CompletedTrade
-            .findById(req.params.id)
+            .findById(req.params.completionid)
             .then(completedtrade => {
                 if (!completedtrade) {
                     return res.status(400).send({

@@ -17,14 +17,28 @@ module.exports = {
 
     list(req, res) {
         return Trade
-            .findAll()
+            .findAll({
+                include: [
+                    {
+                        model: Offer,
+                        as: 'offers'
+                    }
+                ]
+            })
             .then(trades => res.status(200).send(trades))
             .catch(error => res.status(400).send(error))
     },
 
     retrieve(req, res) {
         return Trade
-            .findById(req.params.id)
+            .findById(req.params.tradeid, {
+                include: [
+                    {
+                        model: Offer,
+                        as: 'offers'
+                    }
+                ]
+            })
             .then(trade => {
                 if (!trade) {
                     return res.status(404).send({
@@ -38,7 +52,7 @@ module.exports = {
 
     update(req, res) {
         return Trade
-            .findById(req.params.id)
+            .findById(req.params.tradeid)
             .then(trade => {
                 if (!trade) {
                     return res.status(404).send({
@@ -61,7 +75,7 @@ module.exports = {
 
     destroy(req, res) {
         return Trade
-            .findById(req.params.id)
+            .findById(req.params.tradeid)
             .then(trade => {
                 if (!trade) {
                     return res.status(400).send({

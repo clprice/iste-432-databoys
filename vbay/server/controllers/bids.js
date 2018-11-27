@@ -4,9 +4,8 @@ module.exports = {
     create(req, res) {
         return Bid
             .create({
-                bidid: req.body.bidid,
                 userid: req.body.userid,
-                auctionid: req.body.auctionid,
+                auctionid: req.params.auctionid,
                 price: req.body.price
             })
             .then(bid => res.status(201).send(bid))
