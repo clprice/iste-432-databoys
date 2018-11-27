@@ -47,7 +47,8 @@ module.exports = (sequelize, DataTypes) => {
       onDelete: 'CASCADE'
     })
     Auction.hasMany(models.Bid, {
-      foreignKey: 'bidid'
+      foreignKey: 'auctionid',
+      as: 'bids'
     })
   }
   return Auction

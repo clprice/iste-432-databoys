@@ -37,8 +37,7 @@ module.exports = (sequelize, DataTypes) => {
       onDelete: 'CASCADE'
     })
     Bid.hasOne(models.Sale, {
-      foreignKey: 'saleid',
-      onDelete: 'CASCADE'
+      foreignKey: 'saleid'
     })
   }
   return Bid

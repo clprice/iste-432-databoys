@@ -46,11 +46,10 @@ module.exports = (sequelize, DataTypes) => {
     })
     Trade.hasMany(models.Offer, {
       foreignKey: 'tradeid',
-      onDelete: 'CASCADE'
+      as: 'offers'
     })
     Trade.hasOne(models.CompletedTrade, {
-      foreignKey: 'tradeid',
-      onDelete: 'CASCADE'
+      foreignKey: 'tradeid'
     })
   }
   return Trade

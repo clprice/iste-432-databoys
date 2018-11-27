@@ -4,7 +4,7 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.INTEGER,
       allowNull: true,
       autoIncrement: true,
-      primaryKey: true,
+      primaryKey: true
     },
     userid: {
       allowNull: false,
@@ -45,7 +45,7 @@ module.exports = (sequelize, DataTypes) => {
       onDelete: 'CASCADE'
     })
     Offer.hasOne(models.CompletedTrade, {
-      onDelete: 'CASCADE'
+      foreignKey: 'completionid'
     })
   }
   return Offer
