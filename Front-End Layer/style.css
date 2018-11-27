@@ -1,0 +1,113 @@
+body{  
+    
+}
+
+h2{
+	
+	font-size: 24px;
+	font-family: sans-serif;
+	
+}
+h3{
+	
+	font-size: 18px;
+	font-family: sans-serif;
+	
+}
+.logo{
+    position: fixed;
+    left:0;
+    top:0;
+	height:50px;
+	
+}
+
+.main-menu ul{
+    margin:0px;
+    padding-left: 0;
+	font-size:26px;
+	font-family:sans-serif;
+}
+
+.main-menu{
+    float:right;
+}
+
+.main-menu li{
+    display: inline-block;
+}
+
+ul#page-header{
+    padding:0;
+    margin:0;
+    list-style-type:none;
+    width: 100%;
+    color:black;
+    background-color: white;
+}
+
+ul#page-header li{
+    display: inline;
+}
+
+ul#page-header li a{
+    float:left;
+    color:black;
+    background-color:white;
+    padding: 0.2em 1em;
+    text-decoration: none;
+}
+
+ul#page-header li a:hover{
+    background-color: green;
+    color:white;
+}
+
+.footer{
+    position: fixed;
+    left:0;
+    bottom:0;
+    width:100%;
+    text-align:center;
+}
+.grid-container {
+  display: grid;
+  grid-template-columns: auto auto auto;
+  background-color: #2196F3;
+  padding: 10px;
+}
+.grid-item {
+  background-color: rgba(255, 255, 255, 0.8);
+  border: 1px solid rgba(0, 0, 0, 0.8);
+  padding: 20px;
+  font-size: 30px;
+  text-align: center;
+}
+
+
+.profile-form{
+    width: 700px;
+    clear:both;
+    background-color:pink;
+    font-size:50px;
+    display:inline-block;
+}
+
+.container{
+    text-align:center;
+}
+
+.auction{
+    height: 300px;
+    width: 300px;
+    background-color:red;
+    display:inline-block;
+}
+
+.dosier{
+    height:200px;
+    width: 200px;
+    background-color:pink;
+    text-align: center;
+    display:inline-block;
+}
