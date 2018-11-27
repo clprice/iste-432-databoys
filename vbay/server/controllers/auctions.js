@@ -1,4 +1,5 @@
 const Auction = require('../models').Auction
+const Bid = require('../models').Bid
 
 module.exports = {
     create(req, res) {
@@ -12,13 +13,27 @@ module.exports = {
     },
     list(req, res) {
         return Auction
-            .findAll()
+            .findAll({
+                include: [
+                    {
+                        model: Bid,
+                        as: 'bids'
+                    }
+                ]
+            })
             .then(auctions => res.status(200).send(auctions))
             .catch(error => res.status(400).send(error))
     },
     retrieve(req, res) {
         return Auction
-            .findById(req.params.id)
+            .findById(req.params.auctionid, {
+                include: [
+                    {
+                        model: Bid,
+                        as: 'bids'
+                    }
+                ]
+            })
             .then(auction => {
                 if (!auction) {
                     return res.status(404).send({
@@ -31,7 +46,7 @@ module.exports = {
     },
     update(req, res) {
         return Auction
-            .findById(req.params.id)
+            .findById(req.params.auctionid)
             .then(auction => {
                 if (!auction) {
                     return res.status(404).send({
@@ -54,7 +69,7 @@ module.exports = {
     },
     destroy(req, res) {
         return Auction
-            .findById(req.params.id)
+            .findById(req.params.auctionid)
             .then(auction => {
                 if (!auction) {
                     return res.status(400).send({
