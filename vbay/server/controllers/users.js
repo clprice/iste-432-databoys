@@ -1,5 +1,6 @@
 const User = require('../models').User
 const Auction = require('../models').Auction
+const Trade = require('../models').Trade
 
 module.exports = {
     create(req, res) {
@@ -18,10 +19,16 @@ module.exports = {
     list(req, res) {
         return User
             .findAll({
-                include: [{
-                    model: Auction,
-                    as: 'Auctions'
-                }]
+                include: [
+                    {
+                        model: Auction,
+                        as: 'selling'
+                    },
+                    {
+                        model: Trade,
+                        as: 'trading'
+                    }
+                ]
             })
             .then(users => res.status(200).send(users))
             .catch(error => res.status(400).send(error))
