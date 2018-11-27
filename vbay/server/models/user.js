@@ -25,13 +25,15 @@ module.exports = (sequelize, DataTypes) => {
   })
   User.associate = function (models) {
     User.hasMany(models.Auction, {
-      foreignKey: 'userid'
+      foreignKey: 'userid',
+      as: 'selling'
     })
     User.hasMany(models.Bid, {
       foreignKey: 'auctionid'
     })
     User.hasMany(models.Trade, {
-      foreignKey: 'userid'
+      foreignKey: 'userid',
+      as: 'trading'
     })
     User.hasMany(models.Offer, {
       foreignKey: 'userid'
