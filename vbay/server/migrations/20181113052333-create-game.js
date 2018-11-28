@@ -1,5 +1,5 @@
 module.exports = {
-  up: (queryInterface, Sequelize) => {
+  up: (queryInterface, Sequelize) =>
     queryInterface.createTable('Games', {
       gameid: {
         allowNull: true,
@@ -23,9 +23,7 @@ module.exports = {
         allowNull: false,
         type: Sequelize.DATE
       }
-    });
-  },
-  down: (queryInterface, Sequelize) => {
-    queryInterface.dropTable('games');
-  }
+    }),
+  down: (queryInterface, Sequelize) =>
+    queryInterface.dropTable('games'),
 };
