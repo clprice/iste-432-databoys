@@ -25,5 +25,5 @@ module.exports = {
       }
     }),
   down: (queryInterface, Sequelize) =>
-    queryInterface.dropTable('games'),
-};
+    queryInterface.dropTable('games')
+}

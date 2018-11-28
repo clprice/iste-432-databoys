@@ -1,5 +1,5 @@
 module.exports = {
-  up: (queryInterface, Sequelize) => 
+  up: (queryInterface, Sequelize) =>
     queryInterface.createTable('Auctions', {
       auctionid: {
         allowNull: true,
@@ -46,6 +46,6 @@ module.exports = {
         type: Sequelize.DATE
       }
     }),
-  down: (queryInterface, Sequelize) => 
-    queryInterface.dropTable('auctions'),
-};
+  down: (queryInterface, Sequelize) =>
+    queryInterface.dropTable('auctions')
+}
