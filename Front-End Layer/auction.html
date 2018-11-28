@@ -7,46 +7,50 @@
   <title>VBay</title>
 
 
-  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="style.css">
 
 </head>
 
 <body>
   <script src="app.js"></script>
-<img src="Vbay logo.png" alt="logo">
 
-<nav class="main-menu">
-    <ul id="page-header">
-        <li><a href="index.html">Home</a></li>
-        <li><a href="auction.html">Auction</a></li>
-        <li><a href="profile.html">User Information</a></li>
-        <li><a href="#">Login</a></li>
+  <a href="index.html"><img src="Vbay logo.png" alt="logo" height="50px"></a>
 
-    </ul>
-</nav>
-<div class="container">
-   <!-- <div class="auction">
+    <nav class="main-menu">
+        <ul id="page-header">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="auction.html">Auction</a></li>
+            <li><a href="profile.html">Profile</a></li>
+            <li><a href="#">Login</a></li>
 
+        </ul>   
+    </nav>
 
-    </div> -->
-
-    <div class="dosier">
-        Description:
-        <br>
-        Price:
-        <br>
-        Condition:
-        <br>
+    <h1>Auctions</h1>
+    <div class="container">
+        <div class="auction">
+            <h2>Item Name:</h2>
+            <img src="image1.jpg" height="200px" width="175px">
+            <h2>Seller:</h2>
+        </div>
+            <br/> <br/>
+        <div class="dosier">
+            Description:
+            <br>
+            Price:
+            <br>
+            Condition:
+            <br>
+        </div>
+            <br/> <br/>
+            <form action="#">
+                Bid Amount:
+                <input type="number" value="0" min="0" max="800">
+                <input type="submit">
+            </form>
     </div>
-
-    <form action="#">
-        Bid Amount: <input type="text">
-        <br>
-        <input type="submit" value="Submit">
-    </form>
-</div>
-<div class="footer">
-  <p>&copy The Data Boys</p>
-</div>
+    <div class="footer">
+        <p>&copy The Data Boys</p>
+    </div>
 </body>
 </html>
