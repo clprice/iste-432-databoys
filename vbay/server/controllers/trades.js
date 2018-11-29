@@ -61,11 +61,12 @@ module.exports = {
                 }
                 return trade
                     .update({
-                        tradeid: req.body.tradeid || trade.tradeid,
-                        email: req.body.email || trade.email,
-                        password: req.body.password || trade.password,
-                        fname: req.body.fname || trade.fname,
-                        lname: req.body.lname || trade.lname
+                        tradeid: req.params.tradeid || trade.tradeid,
+                        userid: req.body.userid || trade.userid,
+                        gameid: req.body.gameid || trade.gameid,
+                        description: req.body.description || trade.description,
+                        condition: req.body.condition || trade.condition,
+                        status: req.body.status || trade.status
                     })
                     .then(() => res.status(200).send(trade))  // Send back the updated trade.
                     .catch((error) => res.status(400).send(error))

@@ -1,28 +1,24 @@
 {
   "development": {
-    "username": "jason",
+    "username": "",
     "password": null,
     "database": "vbay",
-    "host": "127.0.0.1",
-    "port": 5432,
+    "host": "afternoon-beyond-89008.herokuapp.com",
     "dialect": "postgres",
     "operatorsAliases": false
   },
   "test": {
-    "username": "jason",
+    "username": "",
     "password": null,
     "database": "vbay",
-    "host": "127.0.0.1",
-    "port": 5432,
+    "host": "afternoon-beyond-89008.herokuapp.com",
     "dialect": "postgres",
     "operatorsAliases": false
   },
   "production": {
-    "username": "jason",
-    "password": null,
+    "use_env_variable": "DATABASE_URL",
     "database": "vbay",
-    "host": "127.0.0.1",
-    "port": 5432,
+    "host": "afternoon-beyond-89008.herokuapp.com",
     "dialect": "postgres",
     "operatorsAliases": false
   }

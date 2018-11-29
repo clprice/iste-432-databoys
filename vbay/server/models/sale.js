@@ -25,11 +25,7 @@ module.exports = (sequelize, DataTypes) => {
     price: {
       type: DataTypes.DOUBLE,
       allowNull: false
-    },
-    saledate: {
-      type: DataTypes.DATEONLY,
-      allowNull: false
-    },
+    }
   })
   Sale.associate = function (models) {
     Sale.belongsTo(models.Auction, {

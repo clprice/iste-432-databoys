@@ -43,7 +43,7 @@ module.exports = {
                 }
                 return completedtrade
                     .update({
-                        completionid: req.body.completionid || completedtrade.completionid,
+                        completionid: req.params.completionid || completedtrade.completionid,
                         tradeid: req.body.tradeid || completedtrade.tradeid,
                         offerid: req.body.offerid || completedtrade.offerid
                     })

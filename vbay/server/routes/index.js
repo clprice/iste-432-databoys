@@ -72,7 +72,7 @@ module.exports = (app) => {
     // Trades
     app.put('/vbay_api/trades/:tradeid', tradesController.update)
     // Users
-    app.put('/vbay-api/users/:id', usersController.update)
+    app.put('/vbay-api/users/:userid', usersController.update)
 
     /**** DELETE ****/
     // Auctions
@@ -90,5 +90,5 @@ module.exports = (app) => {
     // Trades
     app.delete('/vbay-api/trades/:tradeid', tradesController.destroy)
     // Users
-    app.delete('/vbay-api/users/:id', usersController.destroy)
+    app.delete('/vbay-api/users/:userid', usersController.destroy)
 }

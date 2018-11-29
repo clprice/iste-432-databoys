@@ -6,8 +6,7 @@ module.exports = {
             .create({
                 auctionid: req.params.auctionid,
                 bidid: req.body.bidid,
-                price: req.body.price,
-                saledate: req.body.saledate
+                price: req.body.price
             })
             .then(sale => res.status(201).send(sale))
             .catch(error => res.status(400).send(error))
@@ -45,11 +44,10 @@ module.exports = {
                 }
                 return sale
                     .update({
-                        saleid: req.body.saleid || sale.saleid,
+                        saleid: req.params.saleid || sale.saleid,
                         auctionid: req.body.auctionid || sale.auctionid,
                         bidid: req.body.bidid || sale.bidid,
-                        price: req.body.price || sale.price,
-                        saledate: req.body.saledate || sale.saledate
+                        price: req.body.price || sale.price
                     })
                     .then(() => res.status(200).send(sale))  // Send back the updated sale.
                     .catch((error) => res.status(400).send(error))

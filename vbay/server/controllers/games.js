@@ -37,7 +37,7 @@ module.exports = {
                 }
                 return game
                     .update({
-                        gameid: req.body.gameid || game.gameid,
+                        gameid: req.params.gameid || game.gameid,
                         name: req.body.name || game.name,
                         description: req.body.description || game.description
                     })

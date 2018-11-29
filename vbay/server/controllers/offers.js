@@ -46,7 +46,7 @@ module.exports = {
                 }
                 return offer
                     .update({
-                        offerid: req.body.offerid || offer.offerid,
+                        offerid: req.params.offerid || offer.offerid,
                         userid: req.body.userid || offer.userid,
                         tradeid: req.body.tradeid || offer.tradeid,
                         gameid: req.body.gameid || offer.gameid,

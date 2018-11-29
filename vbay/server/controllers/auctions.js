@@ -55,7 +55,7 @@ module.exports = {
                 }
                 return auction
                     .update({
-                        auctionid: req.body.auctionid || auction.auctionid,
+                        auctionid: req.params.auctionid || auction.auctionid,
                         userid: req.body.userid || auction.userid,
                         gameid: req.body.gameid || auction.gameid,
                         description: req.body.description || auction.description,

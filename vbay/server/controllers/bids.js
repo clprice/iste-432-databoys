@@ -44,7 +44,7 @@ module.exports = {
                 }
                 return bid
                     .update({
-                        bidid: req.body.bidid || bid.bidid,
+                        bidid: req.params.bidid || bid.bidid,
                         userid: req.body.userid || bid.userid,
                         auctionid: req.body.auctionid || bid.auctionid,
                         price: req.body.price || bid.price
