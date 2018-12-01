@@ -35,7 +35,7 @@ You are now ready to run the development branch of the vBay application. Use thi
 
 You can visit the server and test the API via this URL:
 
-http://localhost:8000/vbay-api
+http://localhost:8000/vbay-api/
 
 ## Server-Side Deployment
 ---
