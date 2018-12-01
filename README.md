@@ -2,7 +2,7 @@
 vBay is a web based application where users are be able to buy, sell, auction off, bid and trade for games from a personal account in a marketplace within many other people. The application provides a search function which will be filterable by categories such as genre,console platform, year, and many other options. The trading option allows users to trade a game for any other game from any platform and one game may be traded for many other games.
 
 ## Getting Started
----
+
 This repository is for development only and not configured to run on a server. To deploy the app onto a server of your choice you must find those instructions yourself. We have supplied a guide for how to deploy the app via heroku at the [Server-Side Deployment section](#Server-Side-Deployment) using a heroku configured app located in a seperate repository.
 
 ### Prerequisites
@@ -38,7 +38,7 @@ You can visit the server and test the API via this URL:
 http://localhost:8000/vbay-api/
 
 ## Server-Side Deployment
----
+
 We chose [Heroku](https://www.heroku.com/home) to host our API, using Git to push any changes to the live server.
 Of course our app is designed specifically for the Heroku service, but here is how one would deploy the API to Heroku.
 
@@ -85,7 +85,6 @@ https://<HEROKU_APP_NAME>.herokuapp.com/vbay-api/
 If you have received the message "You have successfully connected to the vbay API", then congratulations, you're officially running your own vBay API!
 
 ## Built With
----
 
 * [node.js](https://nodejs.org) - JavaScript runtime environment
 * [express.js](https://expressjs.com/) - node.js framework
@@ -95,7 +94,7 @@ If you have received the message "You have successfully connected to the vbay AP
 * [Chai](https://www.chaijs.com/) - BDD / TDD assertion library
 
 ## Acknowledgements
----
+
 [Ferdinand Cruz](https://stackoverflow.com/users/8975794/ferdinand-cruz) for supplying the heroku sequelize migration command.
 
 [Jumutri](https://scotch.io/@jmuturi) from [scotch.io](https://scotch.io/) for the tech stack [tutorial](https://scotch.io/tutorials/getting-started-with-node-express-and-postgres-using-sequelize) to get us started.
