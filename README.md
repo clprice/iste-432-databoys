@@ -14,3 +14,4 @@ Create a folder where the git directory will live, and clone down the repo into 
 From here you need to create the vbay database in pg, this should be relatively easy to find information on. IMPORTANT: You need a user with a password to this database, or else the sequelize config will not allow you to access it. Create the user and password, then modify 'iste-432-databoys/vbay/server/config/config.json' to match your new username, password, database, and port 5432 (default). 
 Once that has finished, all you need to do is navigate to the root vbay directory in 'iste-432-databoys/vbay' using a node.js command prompt, and run the command 'sequelize db:migrate' This will create the tables in the new database. 
 After this is done, you are ready to go with your local install of the app!
+To run the application, open a node cmd and go to 'iste-432-databoys/vbay' and type 'npm run start:dev'. This will start the application.
