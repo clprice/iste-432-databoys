@@ -1,17 +1,101 @@
-# iste-432-databoys
-## Final Project for ISTE 432: vBay
-The technical stack that we are running requires node.js, express.js, and postgres using sequelize. To install this stack, first you must start with a node install. Follow the instructions at https://nodejs.org/en/download/ to get started, and once you have a working node installation we can begin installing packages.
-Start by installing express, body-parser, and morgan using 
-'npm install express body-parser morgan'
-After this has finished the majority of the node dependencies will be satisfied.
-Install nodemon as well, so that the server can restart after code changes, using 
-'npm install -D nodemon'
-You now need to install postgres for the database. Go to https://www.postgresql.org/download/ and follow the instructions for your current OS. 
-Once this has finished, you can install sequelize.
-'npm install -g sequelize-cli' will install it globally for you.
-And then run 'npm install --save sequelize pg pg-hstore'. This will complete your package.json dependencies.
-Create a folder where the git directory will live, and clone down the repo into this directory from https://github.com/clprice/iste-432-databoys.
-From here you need to create the vbay database in pg, this should be relatively easy to find information on. IMPORTANT: You need a user with a password to this database, or else the sequelize config will not allow you to access it. Create the user and password, then modify 'iste-432-databoys/vbay/server/config/config.json' to match your new username, password, database, and port 5432 (default). 
-Once that has finished, all you need to do is navigate to the root vbay directory in 'iste-432-databoys/vbay' using a node.js command prompt, and run the command 'sequelize db:migrate' This will create the tables in the new database. 
-After this is done, you are ready to go with your local install of the app!
-To run the application, open a node cmd and go to 'iste-432-databoys/vbay' and type 'npm run start:dev'. This will start the application.
+# vBay
+vBay is a web based application where users are be able to buy, sell, auction off, bid and trade for games from a personal account in a marketplace within many other people. The application provides a search function which will be filterable by categories such as genre,console platform, year, and many other options. The trading option allows users to trade a game for any other game from any platform and one game may be traded for many other games.
+
+## Getting Started
+---
+This repository is for development only and not configured to run on a server. To deploy the app onto a server of your choice you must find those instructions yourself. We have supplied a guide for how to deploy the app via heroku at the [Server-Side Deployment section](#Server-Side-Deployment) using a heroku configured app located in a seperate repository.
+
+### Prerequisites
+
+* Make sure you have at least version 10.3.0 of [node.js](https://nodejs.org/en/download/) installed.
+
+* [PostgreSQL](https://www.postgresql.org/download/) must be installed on your machine.
+
+### Installation
+
+Once you have cloned our repository, you must cd into the vbay directory and install the node dependencies:
+
+    $ cd vbay
+    $ npm install --save-dev
+
+Now create a vbay database in postgres:
+
+    $ createdb vbay
+
+Modify the `iste-432-databoys/vbay/server/config/config.json` to match your username (usually the administrator name for your system), password (if you have assigned one), and port 5432 (default).
+
+Now navigate to the root of the app, `iste-432-databoys/vbay/` to run the sequelize migration:
+
+    $ sequelize db:migrate
+
+
+You are now ready to run the development branch of the vBay application. Use this command to run the app:
+
+    $ npm run start:dev
+
+You can visit the server and test the API via this URL:
+
+http://localhost:8000/vbay-api
+
+## Server-Side Deployment
+---
+We chose [Heroku](https://www.heroku.com/home) to host our API, using Git to push any changes to the live server.
+Of course our app is designed specifically for the Heroku service, but here is how one would deploy the API to Heroku.
+
+### Prerequisites
+
+* Clone the vBay API express app by downloading the zip or pulling via the command line from [Here](https://github.com/JasonKirshner/vbay.git)
+
+* Make sure you have at least version 10.3.0 of [node.js](https://nodejs.org/en/download/) installed.
+
+* Download and install the [Heroku CLI](https://devcenter.heroku.com/articles/heroku-cli#download-and-install) and also create an account if you haven't done so already
+
+* Make sure [Git](https://git-scm.com/downloads) is installed as well.
+
+### Deployment
+
+cd into the `vbay` directory and install all the package dependencies:
+    
+    $ cd vbay
+    $ npm install --save-dev
+
+Now login into heroku and deploy the app:
+
+    $ heroku login
+    $ heroku create
+    $ git push heroku master
+
+You must now provision a PostgreSQL database. This depends on what your plan is, the free version (our version) is hobby-dev. You must replace the <PLAN_NAME> in the command with your plan:
+
+    $ heroku addons:create heroku-postgresql:<PLAN_NAME>
+
+To migrate the vbay models into the PostgreSQL
+ database on heroku do the following using our sequelize command:
+
+    $ heroku run sequelize db:migrate
+
+Your app is now running and you may open it in a browser:
+
+    $ heroku open
+
+You may now test the API using this URL and of course replace the <HEROKU_APP_NAME>:
+
+https://<HEROKU_APP_NAME>.herokuapp.com/vbay-api/
+
+If you have received the message "You have successfully connected to the vbay API", then congratulations, you're officially running your own vBay API!
+
+## Built With
+---
+
+* [node.js](https://nodejs.org) - JavaScript runtime environment
+* [express.js](https://expressjs.com/) - node.js framework
+* [Sequelize](http://docs.sequelizejs.com/) - multi-sql ORM tool
+* [PostgreSQL](https://www.postgresql.org/) - DBMS
+* [Mocha](https://mochajs.org/) - Testing framework
+* [Chai](https://www.chaijs.com/) - BDD / TDD assertion library
+
+## Acknowledgements
+---
+[Ferdinand Cruz](https://stackoverflow.com/users/8975794/ferdinand-cruz) for supplying the heroku sequelize migration command.
+
+[Jumutri](https://scotch.io/@jmuturi) from [scotch.io](https://scotch.io/) for the tech stack [tutorial](https://scotch.io/tutorials/getting-started-with-node-express-and-postgres-using-sequelize) to get us started.
