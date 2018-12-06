@@ -1,3 +1,4 @@
+
 //bids post
 var bidsPost = {
   "async": true,
@@ -153,62 +154,3 @@ $.ajax(emp6).always(function(response){
         $("#userlName6").html(response.lname);
         $("#userID6").html(response.userid);
 });
-
-//global vars
-var gameNames=[];
-    
-var games = {
-  "async": true,
-  "crossDomain": true,
-  "url": "https://afternoon-beyond-89008.herokuapp.com/vbay-api/games/",
-  "method": "GET",
-  "headers": {}
-}
-
-//first loop to collect url
-for ( var x = 1; x<10; x++){
-        var tmp = jQuery.extend(true, {}, games);
-        tmp.url += x.toString();
-
-    //ajax to collect everything    
-    $.ajax(tmp).always(function (response){
-
-        if(response.name != null){
-            //get the nme of the games
-            var y = response.name;
-            //get the name of the games for looping with doc id
-            var name = '#games' + i;
-            //store in a global array
-            gameNames.push(y);
-            //cehck
-            console.log(gameNames);
-            //does nothing
-            $(name).html(y);
-        }
-        //loop every element in array
-          for(var i=1; i<10;i++){
-              //find the element of the id of games plus spot in array
-               var ap = document.getElementById("games"+i);
-              //check again
-               console.log(gameNames);
-              //make sure nothing is null
-            if(gameNames[i] != null){
-                //set the game to a
-                var a = gameNames[i];
-                //get the conent of the element so no duplicates
-                var b = ap.textContent;
-                //unused x
-                var z;
-                //make sure the one were putting in isn't the same as the one thats in there
-                if(a != b){
-                //put it in
-                    ap.append(gameNames[i]);
-                }
-                else{
-                    //make sure the next one is different so its not added in
-                    b = a;
-                }
-            }
-          }//end of i for loop
-    });
-}//end of for urls 

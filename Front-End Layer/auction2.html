@@ -6,22 +6,35 @@
 
   <title>VBay</title>
 
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    
+
 
   <link rel="stylesheet" href="style.css">
-<script>
-var settings = {
+<script  type="text/javascript">
+
+ var settings = {
   "async": true,
   "crossDomain": true,
-  "url": "https://afternoon-beyond-89008.herokuapp.com/vbay-api/auctions",
+  "url": "https://afternoon-beyond-89008.herokuapp.com/vbay-api/auctions/",
   "method": "GET",
-  "headers": {}
+  "headers": {
+    
+  }
 }
 
+
 $.ajax(settings).done(function (response) {
-	 var x = response[0].bids[0].price;
-	 
-  
-});
+console.log(response);
+			var pr = response[0].bids[0].price;
+			var x = pr.toFixed(2);
+			var desc = response[0].description;
+			console.log(desc);
+			var cond = document.getElementById('desc');
+			cond.append(desc);
+			var y = document.getElementById('price');
+			y.append(x);
+	});
 
 
 </script>
@@ -46,17 +59,15 @@ $.ajax(settings).done(function (response) {
     <div class="container">
         <div class="auction">
             <h2>Item Name:</h2>
-            <img src="image1.jpg" height="200px" width="175px">
+            <img src="image2.PNG" height="200px" width="175px">
             <h2>Seller:</h2>
         </div>
             <br/> <br/>
         <div class="dosier">
-            Description: <p id ="desc"> Crash Bandicoot</p>
+            Description: <p id ="desc"></p>
             <br>
-            Price: <p id ="price"> 34.53</p>
-            <br>
-            Condition: <p id ="condition"> Well</p>
-            <br>
+            Price: <p id ="price"></p>
+          
         </div>
 	
             <br/> <br/>

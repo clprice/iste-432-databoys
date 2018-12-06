@@ -16,14 +16,14 @@
 
 
 //global vars
-
+/*
       var games=[];
     
     
 var settings = {
   "async": true,
   "crossDomain": true,
-  "url": "https://afternoon-beyond-89008.herokuapp.com/vbay-api/games/",
+  "url": "https://afternoon-beyond-89008.herokuapp.com/vbay-api/games/gameid",
   "method": "GET",
   "headers": {}
 }
@@ -50,8 +50,7 @@ $.ajax(tmp).always(function (response) {
    // $(name).html(y);
     }
     //loop every element in array
-      for(var i=0; i<games.length;i++){
-		
+      for(var i=1; i<10;i++){
           //find the element of the id of games plus spot in array
              var ap = document.getElementById("games"+i);
           //check again
@@ -78,23 +77,28 @@ $.ajax(tmp).always(function (response) {
 		
 });
 }//end of for urls 
- var settings2 = {
+   
+  
+  */
+var settings = {
   "async": true,
   "crossDomain": true,
-  "url": "https://afternoon-beyond-89008.herokuapp.com/vbay-api/auctions",
+  "url": "https://afternoon-beyond-89008.herokuapp.com/vbay-api/games/",
   "method": "GET",
   "headers": {
     
   }
 }
 
-
-$.ajax(settings2).done(function (response) {
-		console.log(response[0].bids[0].price);
-		response[0].bids[0].price;
-	});
-
-
+$.ajax(settings).done(function (response) {
+  console.log(response[0].name);
+  for(int i = 0; i < 10; i++;){
+	  
+	  var get = document.getElementById("games"+i);
+	  get.append(response[i].name);
+	  
+  }
+});  
     </script>
 </head>
 
@@ -103,7 +107,7 @@ $.ajax(settings2).done(function (response) {
 <a href="index.html"><img src="VBay logo.PNG" alt="logo" height = "50px"></a>
 <nav class="main-menu">
     <ul id="page-header">
-        <li><a href="index.php">Home</a></li>
+        <li><a href="index.html">Home</a></li>
         <li><a href="auction.html">Auction</a></li>
         <li><a href="profile.html">Profile</a></li>
         <li><a href="login.php">Login</a></li>
@@ -117,57 +121,57 @@ $.ajax(settings2).done(function (response) {
     
  
 <div id = <class="grid-item">
-<h2> Item Name:<p id="games0"></p></h2> 
-<a href="auction.html"><img src = "image1.jpg" height = "200px" width = "175px"></img></a>
-<h3> Item Price 34.50</h3>
-</div>
-<div id = <class="grid-item">
-<h2> Item Name:<p id="games1"></p></h2>
-<a href="auction.html"><<img src = "image2.png" height = "200px" width = "175px"></img></a>
-
-<h3> Item Price 20.00</h3>
+<h2> Item Name:<p id="games1"></p></h2> 
+<img src = "image1.jpg" height = "200px" width = "175px"></img>
+<h3> Item Price</h3>
 </div>
 <div id = <class="grid-item">
 <h2> Item Name:<p id="games2"></p></h2>
-<img src = "image3.jpg" height = "200px" width = "175px"></img>
+<img src = "image2.png" height = "200px" width = "175px"></img>
 
-<h3> Item Price 15.00</h3>
+<h3> Item Price</h3>
 </div>
 <div id = <class="grid-item">
 <h2> Item Name:<p id="games3"></p></h2>
-<img src = "image4.jpg" height = "200px" width = "175px"></img>
+<img src = "image3.jpg" height = "200px" width = "175px"></img>
 
 <h3> Item Price</h3>
 </div>
 <div id = <class="grid-item">
 <h2> Item Name:<p id="games4"></p></h2>
-<img src = "image5.jpeg" height = "200px" width = "175px"></img>
-
-<h3> Item Price 20.00</h3>
-</div>
-<div id = <class="grid-item">
-<h2> Item Name <p id="games5"></p></h2>
-<img src = "image6.png" height = "200px" width = "175px"></img>
-
-<h3> Item Price 23.00</h3>
-</div>
-<div id = <class="grid-item">
-<h2> Item Name: Super Mario<p id="games6"></p></h2>
-<img src = "image7.jpg" height = "200px" width = "175px"></img>
-
-<h3> Item Price35.00</h3>
-</div>
-<div id = <class="grid-item">
-<h2> Item Name: Pokemon Yellow<p id="games7"></p></h2>
 <img src = "image1.jpg" height = "200px" width = "175px"></img>
 
-<h3> Item Price 30.00</h3>
+<h3> Item Price</h3>
 </div>
 <div id = <class="grid-item">
-<h2> Item Name: Red Dead Redeption<p id="games8"></p></h2>
+<h2> Item Name:<p id="games5"></p></h2>
 <img src = "image1.jpg" height = "200px" width = "175px"></img>
 
-<h3> Item Price 45.00</h3>
+<h3> Item Price</h3>
+</div>
+<div id = <class="grid-item">
+<h2> Item Name <p id="games6"></p></h2>
+<img src = "image1.jpg" height = "200px" width = "175px"></img>
+
+<h3> Item Price</h3>
+</div>
+<div id = <class="grid-item">
+<h2> Item Name:<p id="games7"></p></h2>
+<img src = "image1.jpg" height = "200px" width = "175px"></img>
+
+<h3> Item Price</h3>
+</div>
+<div id = <class="grid-item">
+<h2> Item Name:<p id="games8"></p></h2>
+<img src = "image1.jpg" height = "200px" width = "175px"></img>
+
+<h3> Item Price</h3>
+</div>
+<div id = <class="grid-item">
+<h2> Item Name:<p id="games9"></p></h2>
+<img src = "image1.jpg" height = "200px" width = "175px"></img>
+
+<h3> Item Price</h3>
 </div>
 
 

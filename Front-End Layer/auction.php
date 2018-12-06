@@ -8,28 +8,43 @@
 
 
   <link rel="stylesheet" href="style.css">
-<script>
-var settings = {
-  "async": true,
-  "crossDomain": true,
-  "url": "https://afternoon-beyond-89008.herokuapp.com/vbay-api/auctions",
-  "method": "GET",
-  "headers": {}
-}
 
-$.ajax(settings).done(function (response) {
-	 var x = response[0].bids[0].price;
-	 
-  
-});
-
-
-</script>
 </head>
 
 
+<?php
+
+$curl = curl_init();
+
+curl_setopt_array($curl, array(
+  CURLOPT_URL => 'https://afternoon-beyond-89008.herokuapp.com/vbay-api/bids',
+  CURLOPT_RETURNTRANSFER => true,
+  CURLOPT_ENCODING => "",
+  CURLOPT_MAXREDIRS => 10,
+  CURLOPT_TIMEOUT => 30,
+  CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+  CURLOPT_CUSTOMREQUEST => "GET",
+    CURLOPT_HTTPHEADER => array(
+						
+					  ),
+));
+
+$response = curl_exec($curl);
+$err = curl_error($curl);
+$jsonData = json_decode($response,true);
+curl_close($curl);
+
+if ($err) {
+  echo "cURL Error #:" . $err;
+} else {
+		 $x == $jsonData['price'];
+		echo $x;
+        
+   
+}
+?>
 <body>
- 
+
 <a href="index.html"><img src="VBay logo.PNG" alt="logo" height = "50px"></a>
 
     <nav class="main-menu">
@@ -51,11 +66,11 @@ $.ajax(settings).done(function (response) {
         </div>
             <br/> <br/>
         <div class="dosier">
-            Description: <p id ="desc"> Crash Bandicoot</p>
+            Description: <p id ="desc"></p>
             <br>
-            Price: <p id ="price"> 34.53</p>
+            Price: <p id ="price"><?php  ?></p>
             <br>
-            Condition: <p id ="condition"> Well</p>
+            Condition: <p id ="condition"></p>
             <br>
         </div>
 	

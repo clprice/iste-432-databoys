@@ -66,7 +66,7 @@
 					 
 					  if($_POST['password'] == $jsonData["password"]){
 						  
-						  $_SESSION['role'] = $y;
+						  
 						  header("Location: index.html");
 					  }
 					}
