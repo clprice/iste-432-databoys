@@ -6,24 +6,24 @@
 	}
 ?>
 
-<div id="login-row" class="row justify-content-center align-items-center">
-    <div id="login-column" class="col-md-6">
-        <div id="login-box" class="col-md-12">
+<div>
+    <div >
+        <div>
             <form id="login-form" class="form" action="" method="post">
 				<h1 class="text-center">Login</h1>
-                <div class="form-group">
-                    <label for="email" >Email:</label><br>
-                    <input type="text" name="email" id="email" class="form-control">
+                <div >
+                    <label for="username" >Username</label><br>
+                    <input type="text" name="username" id="username" class="form-control">
 				</div>
-                <div class="form-group">
+                <div >
                     <label for="password">Password:</label><br>
                     <input type="password" name="password" id="password" class="form-control">
 				</div>
-                <div class="form-group">
-                    <label for="remember-me"><span>Remember me</span> <span><input id="remember-me" name="remember-me" type="checkbox"></span></label><br>
-                    <input type="submit" name="submit" class="btn btn-info btn-md text-uppercase" value="submit">
+                <div >
+                   
+                    <input type="submit" name="submit"  value="submit">
 				</div>
-				<div class="form-group">
+				<div >
 					<input type="submit" name="logout" value="logout">
 				</div>
 			</form>
@@ -31,27 +31,47 @@
 	</div>
 </div> <!-- end login row -->
 <?php
-	
-	if (isset($_POST['submit']) && !empty($_POST['email']) && !empty($_POST['password'])){
+
+	if (isset($_POST['submit']) && !empty($_POST['username']) && !empty($_POST['password'])){
 		#insert some kind of api calls here
-		
-		#change results->VCHEMAIL and $results->VCHPASSWORD to api call results for those values
-		if ($_POST['email'] == $results->VCHEMAIL &&
-		password_verify($_POST['password'], $results->VCHPASSWORD)) {
-			$_SESSION['valid'] = true;
-			#INSERT ROLE CALL FROM API HERE 
-			$_SESSION['role'] = apicallRole;
-			#INSERT USERID CALL FROM API HERE 
-			$_SESSION['userId'] = apicallUserId;
-			
-			#change this to a valid link in our app to redirect after login
-			header("Location: index.html");
-		}
-		else{
-			echo "Password or email incorrect";
-		}
+
+
+					$curl = curl_init();
+					$x = 'https://afternoon-beyond-89008.herokuapp.com/vbay-api/users/';
+					$y = $_POST['username'];
+					$z = "{$x}{$y}";
+
+					curl_setopt_array($curl, array(
+					  CURLOPT_URL => $z,
+					  CURLOPT_RETURNTRANSFER => true,
+					  CURLOPT_ENCODING => "",
+					  CURLOPT_MAXREDIRS => 10,
+					  CURLOPT_TIMEOUT => 30,
+					  CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+					  CURLOPT_CUSTOMREQUEST => "GET",
+					  CURLOPT_POSTFIELDS => "",
+					  CURLOPT_HTTPHEADER => array(
+						
+					  ),
+					));
+
+					$response = curl_exec($curl);
+					$err = curl_error($curl);
+					$jsonData = json_decode($response,true);
+					curl_close($curl);
+
+					if ($err) {
+					  echo "cURL Error #:" . $err;
+					} else {
+					 
+					  if($_POST['password'] == $jsonData["password"]){
+						  
+						  
+						  header("Location: index.html");
+					  }
+					}
 	}
-	
+
 ?>
 <?php
 	if (!empty($_POST['logout'])){
@@ -64,4 +84,4 @@
 
 </body>
 
-</html>
+</html> 
