@@ -1,8 +1,4 @@
 <?php
-	include "assets/inc/header.php";
-	include "assets/inc/nav.php";
-	include "assets/inc/container.php";
-	require_once('DB.class.php');
 	session_start();
 	if(isset($_SESSION['role'])){
 		#change this to a link we want if they have already logged in
@@ -35,11 +31,9 @@
 	</div>
 </div> <!-- end login row -->
 <?php
-    $db = new PDO_DB();
 	
 	if (isset($_POST['submit']) && !empty($_POST['email']) && !empty($_POST['password'])){
-		
-		$results = $db->userLogin($_POST['email']);
+		#insert some kind of api calls here
 		
 		#change results->VCHEMAIL and $results->VCHPASSWORD to api call results for those values
 		if ($_POST['email'] == $results->VCHEMAIL &&
@@ -66,10 +60,6 @@
 		session_destroy();
 		echo 'You have logged out.';
 	}
-?>
-<?php
-	include "assets/inc/end-container.php";
-	include "assets/inc/footer.php";
 ?>
 
 </body>
