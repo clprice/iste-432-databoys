@@ -15,6 +15,10 @@ module.exports = {
         type: Sequelize.STRING,
         allowNull: true
       },
+      igdbid: {
+        type: Sequelize.STRING,
+        allowNull: true
+      },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE

@@ -84,7 +84,7 @@ module.exports = {
 
     destroy(req, res) {
         return User
-            .findById(req.params.id)
+            .findById(req.params.userid)
             .then(user => {
                 if (!user) {
                     return res.status(400).send({

@@ -4,7 +4,8 @@ module.exports = {
     create(req, res) {
         return Game.create({
             name: req.body.name,
-            description: req.body.description
+            description: req.body.description,
+            igdbid: req.body.igdbid
         }).then(todo => res.status(201).send(todo)).catch(error => res.status(400).send(error))
     },
     list(req, res) {
@@ -39,7 +40,8 @@ module.exports = {
                     .update({
                         gameid: req.params.gameid || game.gameid,
                         name: req.body.name || game.name,
-                        description: req.body.description || game.description
+                        description: req.body.description || game.description,
+                        igdbid: req.body.igdb || game.igdb
                     })
                     .then(() => res.status(200).send(game))  // Send back the updated game.
                     .catch((error) => res.status(400).send(error))
