@@ -173,16 +173,7 @@ function completeTrade() {
 
 ?>
     <a href="index.html"><img src="VBay logo.PNG" alt="logo" height = "50px"></a>
-
-    <nav class="main-menu">
-        <ul id="page-header">
-            <li><a href="index.html">Home</a></li>
-            <li><a href="auction.html">Auction</a></li>
-            <li><a href="trades.php">Trades</a></li>
-            <li><a href="profile.html">Profile</a></li>
-            <li><a href="login.php">Login</a></li>
-        </ul>   
-    </nav>
+    <?php include 'nav.php';?>
     <div class="container">
         <div class="trade">
             <h1><?php echo getGame(getTrade()['gameid']); ?></h1>
@@ -228,5 +219,6 @@ function completeTrade() {
         </div>
 
     </div>
+    <?php include 'foot.php';?>
 </body>
 </html>

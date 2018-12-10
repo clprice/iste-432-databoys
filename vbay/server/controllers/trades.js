@@ -1,4 +1,5 @@
 const Trade = require('../models').Trade
+const Offer = require('../models').Offer
 
 module.exports = {
     create(req, res) {

@@ -105,16 +105,7 @@ function getAllCompletedTrades() {
 }
 ?>
 <a href="index.html"><img src="VBay logo.PNG" alt="logo" height = "50px"></a>
-
-<nav class="main-menu">
-    <ul id="page-header">
-        <li><a href="index.html">Home</a></li>
-        <li><a href="auction.html">Auction</a></li>
-        <li><a href="trades.php">Trades</a></li>
-        <li><a href="profile.html">Profile</a></li>
-        <li><a href="login.php">Login</a></li>
-    </ul>   
-</nav>
+<?php include 'nav.php';?>
 
 <h1>Trades</h1>
 <div class="container">
@@ -130,6 +121,7 @@ function getAllCompletedTrades() {
     }
   ?>
 </div>
+<?php include 'foot.php';?>
 </body>
 
 </html>

@@ -47,5 +47,5 @@ module.exports = {
       }
     }),
   down: (queryInterface, Sequelize) =>
-    queryInterface.dropTable('auctions')
+    queryInterface.dropTable('Auctions')
 }

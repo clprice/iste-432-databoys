@@ -7,6 +7,9 @@ const salesController = require('../controllers').sales
 const tradesController = require('../controllers').trades
 const usersController = require('../controllers').users
 
+const igdb = require('igdb-api-node').default
+const client = igdb('YOUR_API_KEY')
+
 module.exports = (app) => {
     app.get('/vbay-api', (req, res) => res.status(200).send({
         message: 'You have successfully connected to the vbay API',
@@ -55,6 +58,18 @@ module.exports = (app) => {
     // Users
     app.get('/vbay-api/users', usersController.list)
     app.get('/vbay-api/users/:userid', usersController.retrieve)
+
+
+    /* 
+    // IGDB
+    app.get('/vbay-api/igdb/:igdbid', (req, res) => {
+        client.games({ id: req.params.igdbid }, {}).then(res => {
+            res.body
+        }).catch(error => {
+            throw error;
+        })
+        res.status(200).send()
+    })*/
 
     /**** UPDATE ****/
     // Auctions

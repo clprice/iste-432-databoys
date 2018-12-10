@@ -1,6 +1,6 @@
 module.exports = {
   up: (queryInterface, Sequelize) =>
-    queryInterface.createTable('Completedtrades', {
+    queryInterface.createTable('CompletedTrades', {
       completionid: {
         allowNull: true,
         autoIncrement: true,
@@ -35,5 +35,5 @@ module.exports = {
       }
     }),
   down: (queryInterface, Sequelize) =>
-    queryInterface.dropTable('completedtrades')
+    queryInterface.dropTable('CompletedTrades')
 }
