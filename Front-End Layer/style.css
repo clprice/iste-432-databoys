@@ -2,6 +2,10 @@ body{
     
 }
 
+textarea {
+    resize: none;
+}
+
 h1{
     text-align: center;
 }
@@ -102,13 +106,14 @@ ul#page-header li a:hover{
 }
 
 
-.auction{
-    width: 325px;
+.auction, .trade{
+    width: 100%;
     border: 1px solid black; 
     text-align: center;
     font-size:30px;
     display: inline-block;
-    background-color: rgb(114, 230, 139)
+    background-color: rgb(114, 230, 139);
+    vertical-align: top;
 }
 
 .dosier{
@@ -118,4 +123,11 @@ ul#page-header li a:hover{
     display: inline-block;
     border: 1px solid black;
     text-align: left;
+}
+
+.offer {
+    display: inline-block;
+    margin: 1em;
+    background-color: rgb(114, 230, 139);
+    padding: 1em;
 }
