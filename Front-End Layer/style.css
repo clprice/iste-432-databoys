@@ -1,13 +1,10 @@
 body{  
-    
-}
-
-textarea {
-    resize: none;
+    background-color:#2C2F33;
 }
 
 h1{
     text-align: center;
+	color:white;
 }
 h2{
 	
@@ -38,6 +35,7 @@ h3{
 
 .main-menu{
     float:right;
+	 background-color:#2C2F33;
 }
 
 .main-menu li{
@@ -66,25 +64,23 @@ ul#page-header li a{
 }
 
 ul#page-header li a:hover{
-    background-color: rgb(114, 230, 139);;
+    background-color: rgb(114, 230, 139);
     color:white;
 }
 
 .footer{
-    position: fixed;
-    left:0;
-    bottom:0;
+    color: white;
     width:100%;
     text-align:center;
 }
 .grid-container {
   display: grid;
   grid-template-columns: auto auto auto;
-  background-color: #2196F3;
+  background-color: #7289DA;
   padding: 10px;
 }
 .grid-item {
-  background-color: rgba(255, 255, 255, 0.8);
+  background-color: #7289DA;
   border: 1px solid rgba(0, 0, 0, 0.8);
   padding: 20px;
   font-size: 30px;
@@ -106,14 +102,13 @@ ul#page-header li a:hover{
 }
 
 
-.auction, .trade{
-    width: 100%;
+.auction{
+    width: 325px;
     border: 1px solid black; 
     text-align: center;
     font-size:30px;
     display: inline-block;
-    background-color: rgb(114, 230, 139);
-    vertical-align: top;
+    background-color: rgb(114, 230, 139)
 }
 
 .dosier{
@@ -123,11 +118,4 @@ ul#page-header li a:hover{
     display: inline-block;
     border: 1px solid black;
     text-align: left;
-}
-
-.offer {
-    display: inline-block;
-    margin: 1em;
-    background-color: rgb(114, 230, 139);
-    padding: 1em;
 }
