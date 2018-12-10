@@ -70,11 +70,21 @@ if ($err) {
        <input type="text" name="userid" value="<?php echo htmlspecialchars($userid); ?>" /><br/>
         
         Edit Information<br/>
-        <input type="submit" value="Edit"><br/>
         
+        <input type="submit" value="Edit"><br/>
+        <div >
+            <input type="submit" name="logout" value="logout">
+        </div>
     </form>
 </div>
-
+<?php
+	if (!empty($_POST['logout'])){
+		$_SESSION['valid'] = false;
+		$_SESSION['role'] = '';
+		session_destroy();
+		echo 'You have logged out.';
+	}
+?>
 <?php include 'foot.php';?>
 </body>
 </html>

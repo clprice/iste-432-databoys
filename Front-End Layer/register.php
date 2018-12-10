@@ -74,6 +74,9 @@
 					$fn = $_POST['fn'];
 					$ln = $_POST['ln'];
 	
+                    $hashed = password_hash($_POST['password'],PASSWORD_DEFAULT);
+                    if(password_verify($password,$hashed)) 
+        
 					curl_setopt_array($curl, array(
 					  CURLOPT_URL => $z,
 					  CURLOPT_RETURNTRANSFER => true,
