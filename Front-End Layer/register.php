@@ -70,12 +70,10 @@
 					$z = "{$x}{$y}";
 					$userid = $_POST['userid'];
 					$email = $_POST['email'];
-					$password = $_POST['password'];
+					$password = password_hash($_POST['password'],PASSWORD_BCRYPT);
 					$fn = $_POST['fn'];
 					$ln = $_POST['ln'];
 	
-                    $hashed = password_hash($_POST['password'],PASSWORD_DEFAULT);
-                    if(password_verify($password,$hashed)) 
         
 					curl_setopt_array($curl, array(
 					  CURLOPT_URL => $z,
