@@ -2,12 +2,28 @@
 	session_start();
 	if(isset($_SESSION['role'])){
 		#change this to a link we want if they have already logged in
-		header("Location: index.html");
+		header("Location: index.php");
 	}
 ?>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
 
-<div>
-    <div >
+  <title>VBay</title>
+  <link rel="stylesheet" href="style.css">
+    
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+</head>
+
+<body>
+  <script src="data.js"></script>
+<a href="index.html"><img src="VBay logo.PNG" alt="logo" height = "50px"></a>
+
+<?php include 'nav.php';?>
+    
+<div class="container">
+    <div class="profile-form" >
         <div>
             <form id="login-form" class="form" action="" method="post">
 				<h1 class="text-center">Register</h1>
@@ -130,7 +146,7 @@
 		echo 'You have logged out.';
 	}
 ?>
-
+<?php include 'foot.php';?>
 </body>
 
 </html> 

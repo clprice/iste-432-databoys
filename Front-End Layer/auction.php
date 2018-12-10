@@ -47,15 +47,7 @@ if ($err) {
 
 <a href="index.html"><img src="VBay logo.PNG" alt="logo" height = "50px"></a>
 
-    <nav class="main-menu">
-        <ul id="page-header">
-            <li><a href="index.html">Home</a></li>
-            <li><a href="auction.html">Auction</a></li>
-            <li><a href="profile.html">Profile</a></li>
-            <li><a href="login.php">Login</a></li>
-
-        </ul>   
-    </nav>
+<?php include 'nav.php';?>
 
     <h1>Auctions</h1>
     <div class="container">
@@ -81,8 +73,7 @@ if ($err) {
                 <input type="submit">
             </form>
     </div>
-    <div class="footer">
-        <p>&copy The Data Boys</p>
-    </div>
+<?php include 'foot.php';?>
+    
 </body>
 </html>
